@@ -45,7 +45,7 @@ namespace pid {
 #define LINEAR_KP 2.7
 #define LINEAR_KI 0
 #define LINEAR_KD 3.2
-#define ANGULAR_KP 7.8
+#define ANGULAR_KP 7.7
 #define ANGULAR_KI 0
 #define ANGULAR_KD 70.0
 #define ARC_KP .05

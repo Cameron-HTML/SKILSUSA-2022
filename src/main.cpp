@@ -123,6 +123,136 @@ void autonomous() {
 			chassis::turnAbsolute(180, 100);
 
 			// Move forward to center with blue platform
+			chassis::moveAsync(3.5, 70);
+
+			// Raise the fourbar so that the neutral mobile goal can be stacked
+			fourbar::posMove(1000, 100);
+
+			// Lower lift to release the blue mobile goal at the back
+			lift::move(1450, 100);
+
+			// Wait until the chassis has settled to continue
+			chassis::waitUntilSettled();
+
+			// Turn the robot to heading 78 degees
+			chassis::turnAbsolute(78, 100);
+
+			// Move foward without a PID to get in position to place the mobile goal
+			chassis::fast(.05, 50);
+
+			// Lower fourbar and raise lift
+			pros::delay(500);
+			fourbar::posMove(300, 100);
+			lift::move(200, 100);
+			pros::delay(1000);
+
+			// Open the clamp to stack the neutral mobile goal
+			clamp::move(-100);
+			pros::delay(500);
+
+			// Raise the fourbar to prepare for next movement
+			fourbar::posMove(1000, 100);
+			pros::delay(500);
+
+			// Move backward to get in place for the next mobile goal
+			chassis::move(-1.5, 70);
+
+			// Lower the fourbar to be able to clamp down on mobile goal
+			fourbar::posMove(10, 100);
+
+			// Turn to heading 0 degrees
+			chassis::turnAbsolute(0, 100);
+
+			// Move toward the mobile goal
+			chassis::moveAsync(3.0, 60);
+
+			// Delay the code till close enough to the mobile to clamp down
+			while(chassis::position() < 1200) pros::delay(10);
+
+			// Clamp down on the mogo
+			clamp::move(100);
+
+			// Wait till the robot has settled to continue
+			chassis::waitUntilSettled();
+
+			// Raise fourbar after picking up mobile goal
+			fourbar::posMove(1000, 100);
+
+			// Slow down the clamp to keep hold
+			clamp::move(10);
+
+			// Move backward to center with the platform
+			chassis::move(-3.5, 70);
+
+			// Turn toward the platform
+			chassis::turnAbsolute(78, 100);
+
+			// Move toward the platform to place the mobile goal
+			chassis::fast(.01, 50);
+			pros::delay(1000);
+
+			fourbar::posMove(300, 100);
+			lift::move(200, 100);
+			pros::delay(1000);
+
+			clamp::move(-100);
+			pros::delay(500);
+			fourbar::posMove(1000, 100);
+			pros::delay(500);
+
+			chassis::move(-2.0, 70);
+
+			chassis::turnAbsolute(180, 100);
+
+			lift::move(0, 100);
+			chassis::voltage(3000, 60, 60);
+
+			chassis::move(-1.0, 70);
+			fourbar::posMove(10, 100);
+
+			chassis::turnAbsolute(-90, 100);
+			chassis::voltage(4000, -60, -60);
+
+			chassis::move(2.0, 70);
+
+			fourbar::posMove(1000, 100);
+			chassis::turnAbsolute(-42, 100);
+
+			chassis::moveAsync(16, 80);
+
+			// Wait till the robot has settled to continue
+			chassis::waitUntilSettled();
+
+			chassis::move(-1.5, 80);
+			chassis::turnAbsolute(-3, 100);
+			lift::move(1450, 100);
+
+			chassis::move(-11, 80);
+
+			lift::move(500, 100);
+
+			pros::delay(1000);
+			fourbar::posMove(10, 100);
+			chassis::move(2.0, 80);
+			chassis::turnAbsolute(91, 100);
+
+			// Move towards the neutral mobile goal
+			chassis::moveAsync(7.5, 80);
+
+			// Delay the program until the robot is close enough to the mobile goal
+			while(chassis::position() < 1700) pros::delay(10);
+
+			// Clamp down on the mogo
+			clamp::move(100);
+
+			// Wait till the robot has settled to continue
+			chassis::waitUntilSettled();
+
+			clamp::move(10);
+
+			chassis::turnAbsolute(0, 100);
+
+			// Move forward to center with blue platform
 			chassis::moveAsync(2.8, 70);
 
 			// Raise the fourbar so that the neutral mobile goal can be stacked
@@ -161,7 +291,7 @@ void autonomous() {
 			fourbar::posMove(10, 100);
 
 			// Turn to heading 0 degrees
-			chassis::turnAbsolute(0, 100);
+			chassis::turnAbsolute(180, 100);
 
 			// Move toward the mobile goal
 			chassis::moveAsync(2.6, 60);
@@ -174,77 +304,7 @@ void autonomous() {
 
 			// Wait till the robot has settled to continue
 			chassis::waitUntilSettled();
-
-			// Raise fourbar after picking up mobile goal
-			fourbar::posMove(1000, 100);
-
-			// Slow down the clamp to keep hold
-			clamp::move(10);
-
-			// Move backward to center with the platform
-			chassis::move(-4.1, 70);
-
-			// Turn toward the platform
-			chassis::turnAbsolute(78, 100);
-
-			// Move toward the platform to place the mobile goal
-			chassis::fast(.01, 50);
-
-	
-			pros::delay(1000);
-
-			fourbar::posMove(300, 100);
-			lift::move(200, 100);
-			pros::delay(1000);
-
-			clamp::move(-100);
-			pros::delay(500);
-			fourbar::posMove(1000, 100);
-			pros::delay(500);
-
-			chassis::move(-2.0, 70);
-
-			chassis::turnAbsolute(180, 100);
-
-			lift::move(0, 100);
-			chassis::voltage(3000, 60, 60);
-
-			chassis::move(-1.0, 70);
-			fourbar::posMove(10, 100);
-
-			chassis::turnAbsolute(-90, 100);
-			chassis::voltage(4000, -60, -60);
-
-			chassis::move(2.0, 70);
-
-			chassis::turnAbsolute(-42, 100);
-
-			chassis::moveAsync(16, 80);
-
-			while(chassis::position() < 2900) pros::delay(10);
-
-			// Clamp down on the mogo
-			clamp::move(100);
-
-			// Wait till the robot has settled to continue
-			chassis::waitUntilSettled();
-
-			clamp::move(-100);
-
-			pros::delay(500);
-			clamp::move(0);
-
-			chassis::move(-1, 80);
-			chassis::turnAbsolute(-3, 100);
-			lift::move(1450, 100);
-
-			chassis::move(-11, 80);
-
-			lift::move(500, 100);
-
-			pros::delay(1000);
-			chassis::move(1.0, 80);
-			chassis::turnAbsolute(90, 100);
+			
 
 			pros::delay(10000000);
 
