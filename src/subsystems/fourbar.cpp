@@ -1,7 +1,7 @@
 #include "main.h"
 
 namespace fourbar {
-    okapi::Motor motor(FOURBAR_LEFT);
+    okapi::Motor motor(FOURBAR);
 
     std::shared_ptr<okapi::AsyncPositionController<double, double>> liftControl = okapi::AsyncPosControllerBuilder().withMotor(motor).build();
 

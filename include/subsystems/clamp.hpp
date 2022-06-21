@@ -4,13 +4,12 @@
 //#include "okapi/api.hpp"
 
 namespace clamp {
-    extern okapi::ControllerButton btnB;
-    extern okapi::ControllerButton btnDown;
+    extern okapi::ControllerButton  btn;
 
-    extern okapi::Motor motor;
+    extern pros::ADIDigitalOut piston;
     
     void init();
-    void move(int speed);
+    void toggle();
     void opcontrol();
 }
 

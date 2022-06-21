@@ -4,15 +4,15 @@
 // Drivetrain configuration constants
 namespace chassis {
 // negative numbers mean reversed motor
-#define LEFT_MOTORS -11, -13
-#define RIGHT_MOTORS 19, 20
-#define GEARSET 200 // rpm of chassis motors
+#define LEFT_MOTORS -16, 13, -11
+#define RIGHT_MOTORS 6, -1, 2
+#define GEARSET 257 // rpm of chassis motors
 
 #define DISTANCE_CONSTANT 650 // ticks per distance unit
 #define DEGREE_CONSTANT 2.3   // ticks per degree
 
 // chassis settling constants
-#define SETTLE_TIME 8
+#define SETTLE_TIME 3
 #define SETTLE_THRESHOLD_LINEAR 3
 #define SETTLE_THRESHOLD_ANGULAR 1
 
@@ -21,7 +21,7 @@ namespace chassis {
 #define ARC_STEP 5   // acceleration for arcs
 
 // sensors
-#define IMU_PORT 1            // port 0 for disabled
+#define IMU_PORT 14            // port 0 for disabled
 #define ENCODER_PORTS 0, 0, 0 // port 0 for disabled
 #define EXPANDER_PORT 0
 #define JOYSTICK_THRESHOLD 10 // min value needed for joystick to move drive
@@ -42,12 +42,12 @@ namespace pid {
 #define PID_DEBUG false
 
 // normal pid constants
-#define LINEAR_KP 2.7
+#define LINEAR_KP 2.0
 #define LINEAR_KI 0
 #define LINEAR_KD 3.2
-#define ANGULAR_KP 7.7
+#define ANGULAR_KP 8.0
 #define ANGULAR_KI 0
-#define ANGULAR_KD 70.0
+#define ANGULAR_KD 50.0
 #define ARC_KP .05
 #define DIF_KP .5
 
@@ -66,7 +66,7 @@ namespace selector {
 // Names of autonomi, up to 10
 #define AUTONS "Left", "Right", "MP Auto", "Do Nothing"
 #define HUE 360   // Color of theme from 0-359(H part of HSV)
-#define DEFAULT 0 // Default auton numbers
+#define DEFAULT 1 // Default auton numbers
 } // namespace selector
 
 #endif

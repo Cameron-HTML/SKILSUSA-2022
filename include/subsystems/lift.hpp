@@ -4,14 +4,12 @@
 //#include "okapi/api.hpp"
 
 namespace lift {
-    extern std::shared_ptr<okapi::AsyncPositionController<double, double>> liftControl;
-    extern okapi::Motor motor;
+    extern okapi::ControllerButton btn;
 
-    extern okapi::ControllerButton btnL1;
-    extern okapi::ControllerButton btnL2;
-
+    extern pros::ADIDigitalOut piston;
+    
     void init();
-    void move(int height, int speed);
+    void toggle();
     void opcontrol();
 }
 

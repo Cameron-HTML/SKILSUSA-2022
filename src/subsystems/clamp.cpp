@@ -3,28 +3,24 @@
 #include "okapi/api.hpp"
 
 namespace clamp {
-    okapi::ControllerButton btnB(okapi::ControllerDigital::B);
-    okapi::ControllerButton btnDown(okapi::ControllerDigital::down);
+    okapi::ControllerButton btn(okapi::ControllerDigital::L2);
 
-    okapi::Motor motor(CLAMP);
+    pros::ADIDigitalOut piston(FRONT_CLAMP);
 
     void init() {
-        motor.setGearing(okapi::AbstractMotor::gearset::green);
-        motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-        motor.setEncoderUnits(okapi::AbstractMotor::encoderUnits::degrees);
+        toggle();
     }
 
-    void move(int speed) {
-        motor.moveVelocity(speed);
+    void toggle() {
+        static bool state = false;
+        state = !state;
+
+        piston.set_value(state);
     }
     
     void opcontrol() {
-        if(btnB.isPressed()) {
-            move(200);
-        } else if(btnDown.isPressed()) {
-            move(-200);
-        } else {
-            move(0);
+        if(btn.changedToPressed()) {
+            toggle();
         }
     }
 }

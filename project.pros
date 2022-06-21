@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Main-2022",
+    "project_name": "WORLDS-2",
     "target": "v5",
     "templates": {
       "ARMS": {

@@ -6,23 +6,25 @@
 **/
 
 // Motor order goes front to back
-#define DRIVE_LEFT_1 -11
+#define DRIVE_LEFT_1 -16
 #define DRIVE_LEFT_2 -13
-#define DRIVE_RIGHT_1 20
-#define DRIVE_RIGHT_2 19
+#define DRIVE_LEFT_3 11
+#define DRIVE_RIGHT_1 6
+#define DRIVE_RIGHT_2 1
+#define DRIVE_RIGHT_3 -2
 
 #define LIFT -10
-#define INTAKE 9
-#define CLAMP 18
+#define INTAKE 10
+#define FRONT_CLAMP 'A'
+#define BACK_CLAMP 'B'
 
-#define FOURBAR_LEFT -4
-#define FOURBAR_RIGHT 5
+#define FOURBAR -20
 
 /**
  *  SENSORS
 **/
 
-#define IMUPORT 1
+#define IMUPORT 14
 
 /**
  *  ROBOT PARAMS

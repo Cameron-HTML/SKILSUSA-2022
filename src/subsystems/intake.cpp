@@ -1,13 +1,13 @@
 #include "main.h"
 
 namespace intake {
-    okapi::ControllerButton btnY(okapi::ControllerDigital::Y);
-    okapi::ControllerButton btnRight(okapi::ControllerDigital::right);
+    okapi::ControllerButton btnY(okapi::ControllerDigital::B);
+    okapi::ControllerButton btnRight(okapi::ControllerDigital::down);
 
     okapi::Motor motor(INTAKE);
 
     void init() {
-        motor.setGearing(okapi::AbstractMotor::gearset::green);
+        motor.setGearing(okapi::AbstractMotor::gearset::blue);
         motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
         motor.setEncoderUnits(okapi::AbstractMotor::encoderUnits::degrees);
     }
